@@ -5,7 +5,10 @@ from datetime import datetime
 import requests
 
 
-def current_date():
+def current_date(args_date=None):
+    if args_date:
+        return args_date
+
     datetime_now = datetime.now()
     return datetime_now.strftime("%Y-%m-%d")
 
@@ -81,7 +84,7 @@ def generate_file_name(args, video_url):
     if args.file is not None:
         return os.path.join(args.path, args.file)
 
-    return os.path.join(args.path, '{}_{}_{}{}'.format(current_date(),
+    return os.path.join(args.path, '{}_{}_{}{}'.format(current_date(args.date),
                                                        args.type,
                                                        args.quality,
                                                        os.path.splitext(video_url)[1]))
