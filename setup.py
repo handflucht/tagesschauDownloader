@@ -8,5 +8,5 @@ setup(
     author='handflucht',
     author_email='',
     description='Downloader for Tagesschau, Tagesthemen etc.',
-    requires=['requests']
+    install_requires=['requests']
 )
